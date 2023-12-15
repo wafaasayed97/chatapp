@@ -1,6 +1,7 @@
 import 'package:chat_app/data/model/user_model.dart';
 import 'package:chat_app/presentation/controllers/cubit/get_data_cubit.dart';
 import 'package:chat_app/presentation/screens/chat_details_screen.dart';
+import 'package:chat_app/presentation/screens/notification_screen.dart';
 import 'package:chat_app/presentation/screens/profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,9 @@ class HomeScreen extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
+            IconButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) { return NotificationScreen(); }));
+            }, icon: const Icon(Icons.notifications))
           ],
         ),
         body: BlocConsumer<GetDataCubit, GetDataState>(
